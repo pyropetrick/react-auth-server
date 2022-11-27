@@ -24,7 +24,7 @@ export const registration = async (req, res, next) => {
     name,
     lastname,
     email,
-    dateregistration: date.toLocaleString(),
+    datereg: date.toLocaleString(),
     lastlogin: date.toLocaleString(),
     status: 'offline',
     password: hashPassword,
