@@ -75,25 +75,22 @@ export const deleteUser = async (req, res) => {
   return res.json({users})
 }
 export const blockUser = async (req, res) => {
-  const users = await User.findAll({
-    where: {id: [...req.body.usersId]},
-    attributes: {exclude: ['username', 'password']}
-  });
-  users.forEach(user => {
-    user.status = 'blocked'
-    user.save();
+  // const users = await User.findAll({
+  //   where: {id: [...req.body.usersId]},
+  //   attributes: {exclude: ['username', 'password']}
+  // });
+  const users = await User.update({
+    status: 'blocked'
+  }, {
+    where:
+      {
+        id: [...req.body.usersId]
+      }
   })
   return res.json({users})
 }
 export const unblockUser = async (req, res) => {
-  const users = await User.findAll({
-    where: {id: [...req.body.usersId]},
-    attributes: {exclude: ['username', 'password']}
-  });
-  users.forEach(user => {
-    user.status = 'offline'
-    user.save()
-  });
+  const users = await User.update({status: 'offline'}, {where: {id: [...req.body.usersId]}})
   return res.json({users})
 }
 export const logout = async (req, res) => {
