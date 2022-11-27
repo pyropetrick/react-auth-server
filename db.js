@@ -1,12 +1,12 @@
 import {Sequelize} from 'sequelize';
 
-const DB_NAME = 'auth';
+const DB_NAME = 'railway';
 const DB_USER = 'postgres';
-const DB_PASSWORD = 'root';
+const DB_PASSWORD = 'stCrnL6ptmSHt2M1T2VC';
 const options = {
   dialect: 'postgres',
-  host: 'localhost',
-  port: '5432',
+  host: 'containers-us-west-129.railway.app',
+  port: '5756',
   "define": {
     timestamps: false
   }
