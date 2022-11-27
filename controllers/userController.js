@@ -101,9 +101,10 @@ export const logout = async (req, res) => {
   users.forEach(user => {
     if (user.status === 'blocked') {
       return res.json({message: 'You are blocked'});
+    } else {
+      user.status = 'offline';
+      user.save();
     }
-    user.status = 'offline';
-    user.save();
   })
   return res.json({message: 'Logout is success'});
 }
